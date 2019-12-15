@@ -146,7 +146,7 @@ if __name__ == '__main__':
     for file in all_files:
         with open(file) as f:
             source=f.read().rstrip()
-
+        i=i+1
         data_builder.str_format_to_bert(  source, args, '../bert_data_test/cnndm.test.'+str(i)+'.bert.pt') 
         args.bert_data_path= '../bert_data_test/cnndm'
         test_text_abs(args, device_id, cp, step, predictor)
