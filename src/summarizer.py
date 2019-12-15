@@ -142,11 +142,12 @@ if __name__ == '__main__':
     predictor = load_models_abs(args, device_id, cp, step)
     all_files = glob.glob(os.path.join('/content/PreSumm/bert_data/cnndm', '*'))
     print('Files In Input Dir: ' + str(len(all_files)))
+    i=0
     for file in all_files:
         with open(file) as f:
             source=f.read().rstrip()
 
-        data_builder.str_format_to_bert(  source, args, '../bert_data_test/cnndm.test.0.bert.pt') 
+        data_builder.str_format_to_bert(  source, args, '../bert_data_test/cnndm.test.'+str(i)+'.bert.pt') 
         args.bert_data_path= '../bert_data_test/cnndm'
         test_text_abs(args, device_id, cp, step, predictor)
 #    return args, device_id, cp, step, predictor
