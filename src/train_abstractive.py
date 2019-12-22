@@ -177,7 +177,7 @@ def validate(args, device_id, pt, step):
     for k in opt.keys():
         if (k in model_flags):
             setattr(args, k, opt[k])
-    print(args)
+    #print(args)
 
     model = AbsSummarizer(args, device, checkpoint)
     model.eval()
@@ -235,7 +235,7 @@ def test_abs(args, device_id, pt, step):
     for k in opt.keys():
         if (k in model_flags):
             setattr(args, k, opt[k])
-    print(args)
+    #print(args)
 
     model = AbsSummarizer(args, device, checkpoint)
     model.eval()
